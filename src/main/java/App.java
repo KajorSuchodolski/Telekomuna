@@ -23,13 +23,12 @@ public class App {
 
         int choose = scanner.nextInt();
 
-        //haming.decoding(pathToWrite);
         switch(choose) {
             case 1 -> {
                 Scanner scanner1 = new Scanner(System.in);
                 System.out.println("Podaj nazwe pliku (wraz z rozszerzeniem .txt)");
                 String pathToRead = scanner1.nextLine();
-                hamming.coding(pathToRead);
+                hamming.code(pathToRead);
                 System.out.println("Plik zakodowano pomyślnie.");
             }
             case 2 -> {

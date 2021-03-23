@@ -56,7 +56,7 @@ public class Hamming {
         return sign;
     }
 
-    public void coding(String data) throws IOException {
+    public void code(String data) throws IOException {
 
         //Stworzenie nowego pliku do zapisu
         FileWriter encoded = new FileWriter("encodedFile.txt");
