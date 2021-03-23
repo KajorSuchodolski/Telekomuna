@@ -1,12 +1,18 @@
-import javax.swing.*;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) throws IOException {
+
+        /*
+        *
+        * Program stworzony przez:
+        *
+        * 1. Kamila Topolska 230026
+        * 2. Radosław Zyzik 230049
+        *
+        */
 
         Hamming hamming = new Hamming();
         Scanner scanner = new Scanner(System.in);
@@ -17,23 +23,22 @@ public class App {
 
         int choose = scanner.nextInt();
 
-        switch (choose) {
-            case 1:
-
+        //haming.decoding(pathToWrite);
+        switch(choose) {
+            case 1 -> {
                 Scanner scanner1 = new Scanner(System.in);
                 System.out.println("Podaj nazwe pliku (wraz z rozszerzeniem .txt)");
                 String pathToRead = scanner1.nextLine();
                 hamming.coding(pathToRead);
                 System.out.println("Plik zakodowano pomyślnie.");
-                break;
-            case 2:
+            }
+            case 2 -> {
                 Scanner scanner2 = new Scanner(System.in);
                 System.out.println("Podaj nazwe pliku (wraz z rozszerzeniem .txt)");
                 String pathToWrite = scanner2.nextLine();
-                //haming.decoding(pathToWrite);
+                hamming.decode(pathToWrite);
                 System.out.println("Plik został odkodowany pomyślnie.");
-                break;
-
+            }
         }
 
 
