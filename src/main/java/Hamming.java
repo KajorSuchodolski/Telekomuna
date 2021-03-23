@@ -104,11 +104,12 @@ public class Hamming {
         FileWriter encoded = new FileWriter("decodedFile.txt"); // Tworzenie nowego pliku do zapisu
 
         char [] characters = ReadFileToCharArray(data); // Pobranie bitów z pliku
-        int [] encodedFileArray = new int [16]; // Zakodowany 16 bitowy znak
         int [] mistakesArray = new int [8]; // Tablica przechowujaca bledy
+        int [] encodedFileArray = new int [16]; // Zakodowany 16 bitowy znak
 
-        int counter = 0; // Licznik uzywany w celu zapisania bitow
+
         int mistakes = 0; // Ilosc błędów
+        int counter = 0; // Licznik uzywany w celu zapisania bitow
 
         for(int c = 0; c < characters.length; c++) {
 
@@ -145,21 +146,20 @@ public class Hamming {
 
                 if(mistakes != 0) {
 
-                    int exists = 0;
+                    int errorExistance = 0;
                     for(int i = 0; i < 15; i++) {
                         for(int j = i + 1; j < 16; j++) {
-                            exists = 1;
+                            errorExistance = 1;
                             for(int k = 0; k < 8; k++) {
-
                                 // Wykonyujemy operacje XOR i przyrównujemy dla warunku
                                 if(mistakesArray[k] != (H[k][i] ^ H[k][j])) {
 
                                     // Wartosc tego argumentu dla 0 oznacza jeden błąd, 1 oznacza 2 błędy
-                                    exists = 0;
+                                    errorExistance = 0;
                                     break;
                                 }
                             }
-                            if(exists == 1) {
+                            if(errorExistance == 1) {
 
                                 // Wartosc indeksu bitów jest równa wartości iteracji
                                 firstBit = i;
