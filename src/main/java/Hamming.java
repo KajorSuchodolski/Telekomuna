@@ -13,11 +13,11 @@ public class Hamming {
             {0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0},
             {1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1}};
 
-    public void coding(File data) throws IOException {
+    public void coding(String data) throws IOException {
 
         FileWriter encoded = new FileWriter("encodedFile.txt");
 
-        char [] character = ReadFileToCharArray(data.getPath());
+        char [] character = ReadFileToCharArray(data);
         int[] message = new int[8];
         int[] check = new int[8];
 
@@ -50,6 +50,7 @@ public class Hamming {
         encoded.close();
 
     }
+
 
     private static char[] ReadFileToCharArray(String filePath) throws IOException {
         StringBuilder fileData = new StringBuilder(1000);
